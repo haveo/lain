@@ -92,19 +92,20 @@ function termfair.arrange(p)
             local g = {}
             if this_x == (num_x - 1)
             then
-                g.width = wa.width - (num_x - 1)*width - (num_x + 1)*useless_gap - 2*c.border_width
+                g.width = wa.width - (num_x - 1)*width - (num_x + 1)*useless_gap + 2*c.border_width
             else
-                g.width = width - 2*c.border_width
+                g.width = width + 2*c.border_width
             end
             if this_y == (num_y - 1)
             then
-                g.height = wa.height - (num_y - 1)*height - (num_y + 1)*useless_gap - 2*c.border_width
+                g.height = wa.height - (num_y - 1)*height - (num_y + 1)*useless_gap + 2*c.border_width
             else
-                g.height = height - 2*c.border_width
+                g.height = height
             end
+            g.height = g.height + 2*c.border_width
 
-            g.x = wa.x + this_x*width
-            g.y = wa.y + this_y*height
+            g.x = wa.x + this_x*width - c.border_width
+            g.y = wa.y + this_y*height - c.border_width
 
             if useless_gap > 0
             then
